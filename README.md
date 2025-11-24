@@ -1,123 +1,217 @@
-<p align="center">
-  <img src="https://via.placeholder.com/800x250?text=Shergill+Unisex+Salon+Management" alt="Shergill Unisex Salon Banner"/>
-</p>
+# StyleHub - Salon Booking & Management App
 
-<h1 align="center">💇‍♂️ Shergill Unisex Salon – Management System</h1>
+A complete, production-ready Flutter mobile application for salon booking and management with Firebase backend.
 
-<p align="center">A modern, powerful and fully-featured salon management solution for Unisex Salons.</p>
+## Features
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Flutter-3.x-blue?logo=flutter" />
-  <img src="https://img.shields.io/badge/Firebase-Enabled-orange?logo=firebase" />
-  <img src="https://img.shields.io/badge/Platforms-Android%20%7C%20iOS-green" />
-  <img src="https://img.shields.io/badge/License-MIT-lightgrey" />
-  <img src="https://img.shields.io/badge/Build-Passing-brightgreen?logo=github-actions" />
-</p>
+### 🎯 Core Features
+- **Multi-role Support**: Admin, Salon Owner, Helper/Staff, Customer
+- **Authentication**: Phone OTP + Google Sign-In
+- **Real-time Token System**: Queue management with live tracking
+- **Salon Management**: Create and manage salon profiles
+- **Service Management**: Add/edit services with pricing
+- **Staff Management**: Assign and manage helpers
+- **Booking System**: Token-based booking with real-time updates
+- **Analytics**: Firebase Analytics integration
+- **Push Notifications**: FCM integration
+- **Dark/Light Theme**: System theme support
+- **Beautiful UI**: Modern design with animations
 
----
+### 👤 User Roles
 
-## 📝 About the Project
-**Shergill Unisex Salon Management System** is a cross-platform app designed to manage the daily operations of any modern salon.  
-It supports **Men, Women & Unisex** workflow flows with a clean, elegant UI, smooth animations, and fast performance.
+#### Customer
+- Browse salons
+- View salon details and services
+- Book services and get tokens
+- Track token status in real-time
+- View booking history
 
-It includes **Admin, Staff, and Customer panels** with complete end-to-end salon management capabilities.
+#### Salon Owner
+- Create and manage salon profile
+- Add/edit services
+- Manage staff/helpers
+- View token queue
+- Track revenue and analytics
+- Open/close salon status
 
----
+#### Helper/Staff
+- View assigned tokens
+- Start and complete services
+- Update availability status
 
-## 🎯 Features
+#### Admin
+- Full platform access
+- Manage all salons and users
 
-### 🧑‍💼 Admin Panel
-- Full control over services & categories
-- Staff management & shift assignment
-- Manage offers, deals & membership programs
-- Appointment scheduling & auto-reminders
-- Sales dashboard + Business analytics
-- Role-based access system
+## 🚀 Setup Instructions
 
-### 💇‍♀️ Staff Panel
-- Manage customer bookings
-- Real-time appointment updates
-- Track daily services & commissions
-- Update service status (In-progress → Completed)
+### Prerequisites
+- Flutter 3.8.0 or higher
+- Dart 3.0.0 or higher
+- Firebase project
+- Android Studio / Xcode (for mobile development)
 
-### 👤 Customer App
-- Explore salon services in a beautiful UI
-- Book appointments with preferred stylist
-- Track service status
-- View order & visit history
-- Get discounts, offers & referral bonuses
-- Push Notifications
-
----
-
-## 🎨 UI/UX Highlights
-- Elegant theme design  
-- Lottie animations  
-- HD images from **Unsplash/Pexels**  
-- Smooth page transitions  
-- Dark/Light mode  
-
----
-
-## 🔐 Authentication
-- Email Login  
-- Phone/OTP Login  
-- Google Login  
-- Forgot/Reset Password  
-- Role-based Dashboard  
-
----
-
-## 📅 Appointment System
-- Walk-in & online booking  
-- Real-time availability  
-- Service-time pricing logic  
-- Auto reminders  
-- Staff-wise booking  
-
----
-
-## 💳 Billing & Payments
-- Auto price calculation  
-- Add-ons, combos & extras  
-- GST/Tax support  
-- PDF invoice  
-- Wallet & discounts  
-
----
-
-## 📊 Reports & Analytics
-- Day-wise business summary  
-- Staff performance reports  
-- Customer frequency analytics  
-- Top services overview  
-- Export to PDF/Excel  
-
----
-
-## 🛠️ Tech Stack
-
-**Frontend:**  
-- Flutter 3.x  
-- GetX / Riverpod  
-
-**Backend:**  
-- Firebase Authentication  
-- Cloud Firestore  
-- Firebase Storage  
-- FCM Push Notifications  
-- Firebase Analytics  
-
-**Other Tools:**  
-- SharedPreferences / Secure Storage  
-- Lottie Animations  
-- REST APIs  
-
----
-
-## 📦 Installation
-
-### 1️⃣ Clone Repository
+### 1. Clone the Repository
 ```bash
-git clone https://github.com/yourrepo/shergillunisexsalon.git
-cd shergillunisexsalon
+git clone <repository-url>
+cd shergillunisexsalloon
+```
+
+### 2. Install Dependencies
+```bash
+flutter pub get
+```
+
+### 3. Firebase Setup
+
+#### Android
+1. Download `google-services.json` from Firebase Console
+2. Place it in `android/app/`
+3. Update `android/build.gradle`:
+   ```gradle
+   dependencies {
+       classpath 'com.google.gms:google-services:4.4.0'
+   }
+   ```
+4. Update `android/app/build.gradle`:
+   ```gradle
+   apply plugin: 'com.google.gms.google-services'
+   ```
+
+#### iOS
+1. Download `GoogleService-Info.plist` from Firebase Console
+2. Place it in `ios/Runner/`
+3. Update `ios/Podfile`:
+   ```ruby
+   platform :ios, '12.0'
+   ```
+
+### 4. Configure Firebase
+
+1. Enable Authentication:
+   - Phone Authentication
+   - Google Sign-In
+
+2. Create Firestore Database:
+   - Start in test mode (then apply security rules from `FIREBASE_RULES.md`)
+
+3. Enable Storage:
+   - Create storage bucket
+   - Apply security rules from `FIREBASE_RULES.md`
+
+4. Enable Cloud Messaging:
+   - Configure FCM for push notifications
+
+5. Enable Analytics:
+   - Analytics will work automatically
+
+### 5. Add Assets
+
+#### Images
+Place images in `assets/images/`:
+- `google_logo.png` (for Google Sign-In button)
+
+#### Animations
+Download Lottie animations from [LottieFiles](https://lottiefiles.com/) and place in `assets/animations/`:
+- `onboarding_welcome.json`
+- `success.json`
+- `loading.json`
+- `empty.json`
+
+#### Fonts
+Download Poppins font from [Google Fonts](https://fonts.google.com/specimen/Poppins) and place in `assets/fonts/`:
+- `Poppins-Regular.ttf`
+- `Poppins-Medium.ttf`
+- `Poppins-SemiBold.ttf`
+- `Poppins-Bold.ttf`
+
+### 6. Run the App
+```bash
+flutter run
+```
+
+## 📁 Project Structure
+
+```
+lib/
+├── core/
+│   ├── constants/      # App constants
+│   ├── theme/          # Theme configuration
+│   └── utils/          # Utility functions
+├── data/
+│   ├── models/         # Data models
+│   ├── repositories/   # Data repositories
+│   └── services/       # Firebase services
+├── presentation/
+│   ├── auth/           # Authentication screens
+│   ├── booking/        # Booking screens
+│   ├── helpers/        # Helper management
+│   ├── home/           # Home screens
+│   ├── onboarding/     # Onboarding screens
+│   ├── profile/        # Profile screens
+│   ├── salon/          # Salon screens
+│   ├── services/       # Service management
+│   └── tokens/         # Token management
+└── widgets/            # Reusable widgets
+```
+
+## 🔐 Security
+
+Firebase Security Rules are provided in `FIREBASE_RULES.md`. Make sure to apply them in Firebase Console.
+
+## 📱 Features in Detail
+
+### Token System
+- Automatic token number generation (S-001, S-002, etc.)
+- Real-time status updates
+- Estimated wait time calculation
+- Automatic helper assignment
+
+### Booking Flow
+1. Customer selects salon
+2. Views available services
+3. Selects service
+4. Receives token number
+5. Tracks token status in real-time
+6. Service completion
+
+### Owner Dashboard
+- Today's statistics
+- Token queue management
+- Revenue tracking
+- Service and staff management
+
+## 🛠️ Technologies Used
+
+- **Flutter**: UI framework
+- **Firebase Auth**: Authentication
+- **Cloud Firestore**: Database
+- **Firebase Storage**: File storage
+- **Firebase Analytics**: Analytics
+- **Firebase Cloud Messaging**: Push notifications
+- **Provider**: State management
+- **Lottie**: Animations
+- **Google Fonts**: Typography
+- **SharedPreferences**: Local storage
+
+## 📝 Notes
+
+- Payment integration is currently a placeholder (dummy implementation)
+- Images use Unsplash URLs as placeholders - replace with actual images
+- Lottie animations need to be downloaded and added to assets
+- Google Sign-In requires proper OAuth configuration
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Submit a pull request
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+## 👨‍💻 Author
+
+Built with ❤️ using Flutter
